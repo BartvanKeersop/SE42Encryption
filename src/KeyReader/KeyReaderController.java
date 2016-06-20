@@ -1,5 +1,8 @@
 package KeyReader;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 import java.io.*;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
@@ -23,10 +26,16 @@ public class KeyReaderController {
         //Create the signature
         Signature sig = Signature.getInstance("SHA1withRSA");
         sig.initSign(keyPair.getPrivate());
+        sig.update(readMessage());
 
         //Get signature length
         byte[] signatureBytes = sig.sign();
         int signatureLength = signatureBytes.length;
+
+        for (int j=0; j<signatureBytes.length; j++) {
+            System.out.format("%02X ", signatureBytes[j]);
+        }
+        System.out.println();
 
         //Create path
         String messagePath = "C:\\Users\\Bart van Keersop\\Documents\\GitHub\\SE42Encryption\\files\\INPUT(SignedBy" + signer + ").EXT";
@@ -54,6 +63,7 @@ public class KeyReaderController {
                 if (ios != null)
                     ios.close();
             } catch (IOException e) {
+                e.printStackTrace(System.out);
             }
         }
         return array;

@@ -42,7 +42,6 @@ public class KeyReaderMain extends Application {
     }
 
     public void sign(){
-
         System.out.println("---Signing File--- \n");
         try {
             controller.sign("Bart");
