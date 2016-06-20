@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+  ~ Copyright (c) 2016 Duco Hosting.
+  -->
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EncryptApplication.Encryptor">
+   <children>
+      <TextArea fx:id="txtMessage" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="373.0" promptText="Message" />
+      <PasswordField fx:id="txtPassword" layoutX="16.0" layoutY="228.0" promptText="Password" />
+      <Button fx:id="btnEncrypt" layoutX="174.0" layoutY="228.0" mnemonicParsing="false" onAction="#encrypt" text="Encrypt" />
+      <Button fx:id="btnDecrypt" layoutX="244.0" layoutY="228.0" mnemonicParsing="false" onAction="#decrypt" text="Decrypt" />
+      <Button fx:id="btnClear" layoutX="330.0" layoutY="228.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+      <TextField fx:id="txtFile" layoutX="16.0" layoutY="264.0" promptText="File name" />
+      <TextField fx:id="txtIterations" layoutX="237.0" layoutY="264.0" promptText="Iterations" text="20" />
+   </children>
+</AnchorPane>
