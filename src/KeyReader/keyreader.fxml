@@ -27,7 +27,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="btnSign" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="145.0" text="Sign" />
+                  <Button fx:id="btnSign" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="145.0" text="Sign"/>
                </children>
             </AnchorPane>
         </items>

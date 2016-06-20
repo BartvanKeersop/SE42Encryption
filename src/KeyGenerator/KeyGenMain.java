@@ -10,7 +10,7 @@ import javafx.stage.Stage;
  * Created by Bart van Keersop on 6/20/2016.
  */
 public class KeyGenMain extends Application {
-    KeyGenController controller;
+    private KeyGenController controller;
 
         @Override
         public void start(Stage primaryStage) throws Exception{
