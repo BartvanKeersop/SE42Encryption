@@ -8,8 +8,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="KeyReader.KeyReaderController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KeyReader.KeyReaderController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -27,7 +26,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="btnSign" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="145.0" text="Sign"/>
+                  <Button fx:id="btnSign" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="145.0" text="Sign" />
                </children>
             </AnchorPane>
         </items>

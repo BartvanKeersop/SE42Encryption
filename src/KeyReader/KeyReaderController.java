@@ -4,6 +4,7 @@ import java.io.*;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 
 public class KeyReaderController {
     private File message;
@@ -40,11 +41,11 @@ public class KeyReaderController {
 
     public byte[] readMessage() throws IOException {
 
-        byte[] buffer = new byte[(int) message.length()];
+        byte[] array = new byte[(int) message.length()];
         InputStream ios = null;
         try {
             ios = new FileInputStream(message);
-            if (ios.read(buffer) == -1) {
+            if (ios.read(array) == -1) {
                 throw new IOException(
                         "EOF reached while trying to read the whole file");
             }
@@ -55,28 +56,24 @@ public class KeyReaderController {
             } catch (IOException e) {
             }
         }
-        return buffer;
+        return array;
     }
 
     public void getKey() throws NoSuchAlgorithmException, InvalidKeySpecException, IOException {
-        //get the key from
         FileInputStream fis;
-
-        //Get the file for it's length
+        // Read Private Key.
         File filePrivateKey = new File(PRIVATE_KEY_FILE);
-
-        //Go and read the file
         fis = new FileInputStream(PRIVATE_KEY_FILE);
-
         byte[] encodedPrivateKey = new byte[(int) filePrivateKey.length()];
         fis.read(encodedPrivateKey);
         fis.close();
 
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 
-        //Convert to PKCS8 else java can't read.
-        PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(encodedPrivateKey);
-        PrivateKey privateKey = keyFactory.generatePrivate(privateKeySpec);
+        // Generate Key
+        KeyFactory kf = KeyFactory.getInstance("RSA"); // or "EC" or whatever
+        System.out.println();
+        PrivateKey privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(encodedPrivateKey));
+
         keyPair = new KeyPair(null, privateKey);
     }
 }
