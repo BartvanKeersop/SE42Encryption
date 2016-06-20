@@ -10,9 +10,11 @@ import javafx.stage.Stage;
  * Created by Bart van Keersop on 6/20/2016.
  */
 public class KeyGenMain extends Application {
+    KeyGenController controller;
 
         @Override
         public void start(Stage primaryStage) throws Exception{
+            controller = new KeyGenController();
             Parent root = FXMLLoader.load(getClass().getResource("keygen.fxml"));
             primaryStage.setTitle("Key Generator");
             primaryStage.setScene(new Scene(root, 300, 275));
